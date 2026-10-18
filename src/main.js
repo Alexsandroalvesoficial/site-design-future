@@ -7,11 +7,20 @@ import { portfolioProjects } from './data/projects.js';
 import logoPuro from './data/logo_df_estrela_verde_puro.svg';
 import logoGradiente from './data/logo_df_estrela_verde_gradiente.svg';
 
-// Atualiza as logos no DOM automaticamente
+// Atualiza as logos e o favicon no navegador automaticamente
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.brand-symbol').forEach(img => img.src = logoPuro);
   const heroLogo = document.querySelector('.floating-logo');
   if (heroLogo) heroLogo.src = logoGradiente;
+
+  // Injeta o Favicon da Design Future na aba do navegador
+  let favicon = document.querySelector("link[rel~='icon']");
+  if (!favicon) {
+    favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    document.head.appendChild(favicon);
+  }
+  favicon.href = logoPuro;
 });
 /* ==========================================================================
    CONFIGURAÇÃO DO ENDPOINT DO FORMULÁRIO (Formspree / Getform)
