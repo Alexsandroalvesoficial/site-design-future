@@ -4,7 +4,15 @@
  */
 
 import { portfolioProjects } from './data/projects.js';
+import logoPuro from './data/logo_df_estrela_verde_puro.svg';
+import logoGradiente from './data/logo_df_estrela_verde_gradiente.svg';
 
+// Atualiza as logos no DOM automaticamente
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.brand-symbol').forEach(img => img.src = logoPuro);
+  const heroLogo = document.querySelector('.floating-logo');
+  if (heroLogo) heroLogo.src = logoGradiente;
+});
 /* ==========================================================================
    CONFIGURAÇÃO DO ENDPOINT DO FORMULÁRIO (Formspree / Getform)
    ==========================================================================
